@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{%block content%}
+<div class="row">
+    <div class="col-md-12 text-center">
+        <h1>Welcome to Soumya's Tech Academy.</h1>
+        {% if session['username'] %}
+        <h3>Let's get started.</h3>
+        {% else %}
+        <p>Already registered? <a href="{{ url_for('login') }}">Login</a></p>
+        {% endif %}
+
+        <div style="text-align:left;">
+            <h2>What Is This Application</h2>
+
+            <p>This is a University enrollment application. This web application developed using Flask.
+               Here user can register in the application using email address, name and password. Passwords
+               are stored in a hashed format inside database. This is a secured way to use password so that
+               even admin can't retrieve the password of the user. Once user try to login flask uses its
+               algorithm to compare the hashed password. And it is dynamic in nature. In the backend i have used
+               Mongo DB database and flask mongo db engine. This is an efficient no sql database where we can store and
+               retrieve data in json format. I have exposed api of the application. So using api call user can create, update
+               and delete data. 
+            </p>
+
+            <p>
+                User will first land into the home page. Non logged in user also can see the courses available.absolute
+                But they can't enroll in the course. To enroll in the courser user needs to register and login first.
+                Once the user is logged in if user goes to enrolment page it will show the courses in which user is enrolled.
+                If user wants to enroll in the sam courser it will show error message. Email and password also have some inbuilt
+                validations.
+            </p>
+        </div>
+    </div>
+</div>
+{%endblock%}
